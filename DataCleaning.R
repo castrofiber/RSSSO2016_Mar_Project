@@ -39,6 +39,21 @@ DataALL<-merge(DataGlycans,data.cleaned,by.x="id",by.y="id") #less common indivi
 #First create matrix containing only Glycans/metabolites#
 #Example with matrix of Glycans#
 
+GLYCANS <- DataALL[grep("G", names(DataALL))]
+
+# Nice plots
+
+correlation_matrix <- cor(as.matrix(GLYCANS), use = "pairwise.complete.obs")
+
+correlation_heatmap <- ggplot(data = melt(correlation_matrix), 
+                              aes(Var1, Var2))+
+  geom_tile(aes(fill = value))
+
+# boxplots on logtransformed data
+
+boxplots <- ggplot(data = melt(log(GLYCANS)), aes(variable, value))+
+  geom_boxplot(aes(fill = value))
+
 #OUTLIERS DETECTION#
 sampleTree = hclust(dist(GLYCANS), method = "average");
 

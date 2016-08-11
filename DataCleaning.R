@@ -6,7 +6,7 @@ library(WGCNA)
 
 setwd("/common/WORK/SCHOOL2016/Data/Croatia/")
 data<-read.table("rssso2015_combinedphenos_VIS_KORCULA_July2015.txt", header=T,stringsAsFactors=T)
-glycansVis_LCMS<-read.table("nanoLCMS/Vis_IgG_nanoLCMS_raw_batchCorrected.txt", header=T,stringsAsFactors=T) #Glycans#
+glycansVis_LCMS<-read.table("Vis_IgG_nanoLCMS_raw_batchCorrected.txt", header=T,stringsAsFactors=T) #Glycans#
 glycansVis_UPLC<-read.table("Vis_IgG_UPLC_raw_batchCorrected.txt", header=T,stringsAsFactors=T) #Glycans#
 
 glycansVis_LCMS<-glycansVis_LCMS[,-2]
